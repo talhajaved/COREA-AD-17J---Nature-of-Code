@@ -1,203 +1,78 @@
-var img_array = [];
-var temp_img;
-var ctr = 0;
-var percentage = 0;
-var pic_duration = 30;
-var wait_timer = pic_duration;
+var leagueStandingsData;
 
 function preload() {
-  img_array.push(loadImage("data/panda.jpg"));
-  img_array.push(loadImage("data/cat.jpg"));
-  img_array.push(loadImage("data/penguin.jpg"));
-  img_array.push(loadImage("data/rabbit.jpg"));
-  img_array.push(loadImage("data/bear.jpg"));
-  img_array.push(loadImage("data/dog.jpg"));
+  var leagueStandingsURL = "data.json"
+  leagueStandingsData = loadJSON(leagueStandingsURL);
 }
 
 function setup() {
-  createCanvas(400, 400);
-  temp_img = img_array.shift();
-  img_array.push(temp_img);
-}
+  createCanvas(800,900);
+  background(255);
 
-function draw() {
-  if (ctr % 4 == 3){
-    percentage += .005;
-    wait_timer += .5;
-  } 
-  else
-    percentage += .02;
-  if (percentage > 1.0) {
-    if (wait_timer < 1) {
-      percentage = 0;
-      ctr++;
-      temp_img = img_array.shift();
-      img_array.push(temp_img);
-      wait_timer = pic_duration;
-    } else {
-      wait_timer--;
-      percentage = 1;}
+  noStroke();
+  fill(152,251,152);
+  rect(0,175,740,140);
+  fill(250,128,114);
+  rect(0,770,740,105);
+
+
+  // vertical lines
+  stroke(0,0,0);
+  line(75,130,75,876);
+  for (i = 1; i < width; i++){
+    var x_coor = i * 80 + 260;
+    line(x_coor,130,x_coor,876);
   }
-  if (ctr > 5) ctr = 0;
 
-  if (ctr % 4 == 0) barWipe(img_array[0],temp_img,percentage);
-  else if (ctr % 4 == 1) clockwiseWipe(img_array[0],temp_img,percentage);
-  else if (ctr % 4 == 2) irisWipe(img_array[0],temp_img,percentage);
-  else if (ctr % 4 == 3) crossFade(temp_img,img_array[0],percentage);
-}
-
-
-function crossFade(img1,img2,p) {
-  loadPixels();
-
-  // We must also call loadPixels() on the PImage since we are going to read its pixels.
-  img1.loadPixels();
-  img2.loadPixels();
-  for (var y = 0; y < height; y++ ) {
-    for (var x = 0; x < width; x++ ) {
-      var loc = (x + y * width) * 4;
-      // The functions red(), green(), and blue() pull out the three color components from a pixel.
-      var r1 = img1.pixels[loc   ]; 
-      var g1 = img1.pixels[loc + 1];
-      var b1 = img1.pixels[loc + 2];
-
-      // The functions red(), green(), and blue() pull out the three color components from a pixel.
-      var r2 = img2.pixels[loc   ]; 
-      var g2 = img2.pixels[loc + 1];
-      var b2 = img2.pixels[loc + 2];
-
-      // Set the display pixel to the image pixel
-      pixels[loc    ] = r1 + (r2 - r1) * p;
-      pixels[loc + 1] = g1 + (g2 - g1) * p;
-      pixels[loc + 2] = b1 + (b2 - b1) * p;
-      pixels[loc + 3] = 255; // Always have to set alpha
-    }
+  // horizontal lines
+  line(0,130,740,130);
+  for (i = 5; i < height; i++){
+    var y_coor = i * 35;
+    line(0,y_coor,740,y_coor);
   }
-  updatePixels();
-}
 
-function irisWipe(img1,img2,p) {
-  loadPixels();
+  // title text
+  textAlign(CENTER);
+  textStyle(BOLD);
+  textSize(45);
+  fill(0,0,255);
+  noStroke();
+  var title = leagueStandingsData.leagueCaption;
+  text(title, 370,65);
 
-  // We must also call loadPixels() on the PImage since we are going to read its pixels.
-  img1.loadPixels();
-  img2.loadPixels();
-  for (var y = 0; y < height; y++ ) {
-    for (var x = 0; x < width; x++ ) {
-      var loc = (x + y * width) * 4;
-      // The functions red(), green(), and blue() pull out the three color components from a pixel.
-      var r1 = img1.pixels[loc   ]; 
-      var g1 = img1.pixels[loc + 1];
-      var b1 = img1.pixels[loc + 2];
+  // Sub-heading text
+  textStyle(NORMAL);
+  textSize(30);
+  fill(0);
+  text("Matchday: "+ leagueStandingsData.matchday,370,105);
 
-      // The functions red(), green(), and blue() pull out the three color components from a pixel.
-      var r2 = img2.pixels[loc   ]; 
-      var g2 = img2.pixels[loc + 1];
-      var b2 = img2.pixels[loc + 2];
-
-      var radius_limit = sqrt(sq(width)+sq(height))/2 * p;
-      if (sq(x-width/2)+sq(y-height/2) < sq(radius_limit))  {
-        pixels[loc    ] = r1;
-        pixels[loc + 1] = g1;
-        pixels[loc + 2] = b1;
-        pixels[loc + 3] = 255;
-      } else {
-        pixels[loc    ] = r2;
-        pixels[loc + 1] = g2;
-        pixels[loc + 2] = b2;
-        pixels[loc + 3] = 255;
-      }
-    }
+    // Standings text
+  textSize(20);
+  var standings = leagueStandingsData.standing
+  var start_x = 200;
+  for (i in standings){
+    textAlign(LEFT);
+    text(standings[i].teamName,100,35*i + start_x);
+    textAlign(CENTER);
+    var x = parseInt(i) + 1;
+    text(x+"",40,35*i + start_x);
+    text(standings[i].playedGames+'',380,35*i + start_x);
+    text(standings[i].goals+'',460,35*i + start_x);
+    text(standings[i].goalsAgainst+'',540,35*i + start_x);
+    text(standings[i].goalDifference+'',620,35*i + start_x);
+    text(standings[i].points+'',700,35*i + start_x); 
   }
-  updatePixels();
-}
 
-function barWipe(img1,img2,p) {
-  loadPixels();
+  textStyle(BOLD);
+  textSize(23);
+  textAlign(LEFT);
+  text('Team',175,start_x - 38);
+  textAlign(CENTER);
+  text("#",40,start_x - 38);
+  text('P',380,start_x - 38);
+  text('GF',460,start_x - 38);
+  text('GA',540,start_x - 38);
+  text('GF',620,start_x - 38);
+  text('PTS',700,start_x - 38);
 
-  // We must also call loadPixels() on the PImage since we are going to read its pixels.
-  img1.loadPixels();
-  img2.loadPixels();
-  for (var y = 0; y < height; y++ ) {
-    for (var x = 0; x < width; x++ ) {
-      var loc = (x + y * width) * 4;
-      // The functions red(), green(), and blue() pull out the three color components from a pixel.
-      var r1 = img1.pixels[loc   ]; 
-      var g1 = img1.pixels[loc + 1];
-      var b1 = img1.pixels[loc + 2];
-
-      // The functions red(), green(), and blue() pull out the three color components from a pixel.
-      var r2 = img2.pixels[loc   ]; 
-      var g2 = img2.pixels[loc + 1];
-      var b2 = img2.pixels[loc + 2];
-
-      // Set the display pixel to the image pixel
-      var x_limit = floor(width * p);
-      if (x < x_limit) {
-        pixels[loc    ] = r1;
-        pixels[loc + 1] = g1;
-        pixels[loc + 2] = b1;
-        pixels[loc + 3] = 255;
-      } else {
-        pixels[loc    ] = r2;
-        pixels[loc + 1] = g2;
-        pixels[loc + 2] = b2;
-        pixels[loc + 3] = 255;
-      }
-      
-    }
-  }
-  updatePixels();
-}
-
-function clockwiseWipe(img1,img2,p) {
-  loadPixels();
-
-  // We must also call loadPixels() on the PImage since we are going to read its pixels.
-  img1.loadPixels();
-  img2.loadPixels();
-  for (var y = 0; y < height; y++ ) {
-    for (var x = 0; x < width; x++ ) {
-      var loc = (x + y * width) * 4;
-      // The functions red(), green(), and blue() pull out the three color components from a pixel.
-      var r1 = img1.pixels[loc   ]; 
-      var g1 = img1.pixels[loc + 1];
-      var b1 = img1.pixels[loc + 2];
-
-      // The functions red(), green(), and blue() pull out the three color components from a pixel.
-      var r2 = img2.pixels[loc   ]; 
-      var g2 = img2.pixels[loc + 1];
-      var b2 = img2.pixels[loc + 2];
-
-      var angle_limit = floor(360 * p);
-      angleMode(DEGREES);
-      var angle;
-      if (x < width/2 && y < height/2) {
-        angle = floor(atan((height/2-y)/(width/2-x))) + 270;
-      }
-      else if (x >= width/2 && y < height/2) {
-        angle = floor(atan((x-width/2)/(height/2-y))) + 0;
-      }
-      else if (x >= width/2 && y >= height/2) {
-        angle = floor(atan((y-height/2)/(x-width/2))) + 90;
-      }
-      else if (x < width/2 && y >= height/2) {
-        angle = floor(atan((width/2-x)/(y-height/2))) + 180;
-      }
-
-      if (angle < angle_limit)  {
-        pixels[loc    ] = r1;
-        pixels[loc + 1] = g1;
-        pixels[loc + 2] = b1;
-        pixels[loc + 3] = 255;
-      } else {
-        pixels[loc    ] = r2;
-        pixels[loc + 1] = g2;
-        pixels[loc + 2] = b2;
-        pixels[loc + 3] = 255;
-      }
-    }
-  }
-  updatePixels();
-}
-
+ }
