@@ -68,7 +68,7 @@ function setup() {
 
 
   selectMenu = getElement('menu');
-  selectMenu.position(100,50);
+  //selectMenu.position(100,50);
 
 
 
@@ -292,7 +292,11 @@ function draw(){
   textSize(22);
   text("Color Key", 25, 33);
 
-  for (i = 0; i < 39; i++) {
+  textSize(15);
+  text("Matchday", 153, 19);
+  text(" /Position", 152, 39);
+
+  for (i = 1; i < 39; i++) {
     var x_coor = start_x + x_incr/4 + i * x_incr;
     fill(0);
     textStyle(NORMAL);

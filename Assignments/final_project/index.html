@@ -5,9 +5,15 @@ h1 {
     color:DodgerBlue;
     font-family:verdana;
     font-size:350%;
+    padding: 0px;
     padding-top:15px;
-    padding-bottom: 0px;
 }
+select {
+   width: 268px;
+   font-size: 20px;
+   line-height: 1;
+   height: 34px;
+   }
 /*menu{
   font-size:3500%;  
 }*/
@@ -22,7 +28,7 @@ h1 {
 </head>
 <body>
 	<h1 align="center">Barclays Premier League 2014/15</h1>
-
+<div class="styled" align="center" style="padding-bottom: 15px;">  
 <select name="Teams" id = "menu" onchange="if (this.selectedIndex > -1) optionSelected();" title="Highlight a Team">
 <option value="All">All Teams</option>
 <option value="FC Arsenal London">Arsenal</option>
@@ -46,6 +52,6 @@ h1 {
 <option value="West Bromwich Albion">West Brom</option>
 <option value="West Ham United FC">West Ham</option>
 </select>
-
+</div>
 </body>
 </html>
