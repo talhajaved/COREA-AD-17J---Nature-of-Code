@@ -16,7 +16,7 @@ var bettingOddsTable;
 var bettingOddsDict = {};
 var shortNamesArray = [];
 
-var selectMenu;
+var checkbox;
 
 
 // A list for all of our particles
@@ -39,7 +39,7 @@ function preload() {
 
   var colorsURL = "data/team_colors.json";
   colorsDict = loadJSON(colorsURL);
-  var shortNamesURL = "data/team_short_names.json";
+  var shortNamesURL = "data/odds.json";
   shortNamesDict = loadJSON(shortNamesURL);
  
 }
@@ -67,10 +67,9 @@ function setup() {
     text(""+i, x_coor, 2 * y_incr/3);
   }
 
-
-  selectMenu = getElement('menu');
-  selectMenu.position(100,50);
-  
+  // checkbox = createInput('something');
+  // checkbox.elt.type = 'checkbox';
+  // checkbox.position(100,100);
 
 
   
@@ -100,11 +99,6 @@ function setup() {
         board.text(teamName, 4, y_coor);
       }
     }
-  }
-  for (i = 1; i<21; i++){
-    board.fill(0);
-    var y_coor = 1 * i * y_incr + 32;
-    board.text(i + "", 170, y_coor);
   }
 
  
@@ -145,33 +139,30 @@ function setup() {
       var awayTeam = shortNamesDict[x.awayTeamName];
       var tempOddsArray = bettingOddsDict[[homeTeam, awayTeam]];
       fixturesDict[tempMatchID].addOdds(tempOddsArray[0],tempOddsArray[1],tempOddsArray[2]);
+
     }
   }
 
-  var selected = selectMenu.elt.value;
+  
+
+
+  
   for (x in teamsDict){
     var tempTeam = teamsDict[x];
     var R = colorsDict[x][0];
     var G = colorsDict[x][1];
     var B = colorsDict[x][2];
-    if (selected == "All") var A = 255;
-    else A = 50;
-     if (x == "Manchester United FC") A = 255;
+    var A = 255;
+    // if (x == "Chelsea FC") A = 255;
     board.noFill();
     board.stroke(R,G,B,A);
     board.strokeWeight(5.0);
     board.strokeJoin(ROUND);
     board.beginShape();
-    startingPosition = true;
     for (y in tempTeam.standings){
-      if (startingPosition){
-        startingPosition = false;
-        continue;
-      }
       var x_coor = start_x + x_incr/2 + y * x_incr;
       var y_coor = tempTeam.standings[y] * y_incr + y_incr/2;
-      board.vertex(x_coor,y_coor) ;
-      
+      board.vertex(x_coor,y_coor) 
     }
     board.endShape();
     board.noStroke();
@@ -195,103 +186,15 @@ function setup() {
       }
     }
   }
+
 }
 
-function optionSelected(){
-  var tempBoard;
-  tempBoard = createGraphics(3000,1000);
-  tempBoard.background(255,255,255);
-  tempBoard.stroke(0,0,0,100);
-  for (i = 0; i < height; i = i + y_incr) {
-    tempBoard.line(0,i,width,i);
-  }
-  for (i = start_x; i < width; i = i + x_incr) {
-    tempBoard.line(i,0,i,height);
-  }
 
-  var selected = selectMenu.elt.value;
-
-  for (x in teamsDict){
-    var tempTeam = teamsDict[x];
-    var R = colorsDict[x][0];
-    var G = colorsDict[x][1];
-    var B = colorsDict[x][2];
-    var A = 30;
-    if (selected == "All") A = 255;
-    if (x == selected) A = 255;
-    tempBoard.noFill();
-    tempBoard.stroke(R,G,B,A);
-    tempBoard.strokeWeight(5.0);
-    tempBoard.strokeJoin(ROUND);
-    tempBoard.beginShape();
-    startingPosition = true;
-    for (y in tempTeam.standings){
-      if (startingPosition){
-        startingPosition = false;
-        continue;
-      }
-      var x_coor = start_x + x_incr/2 + y * x_incr;
-      var y_coor = tempTeam.standings[y] * y_incr + y_incr/2;
-      tempBoard.vertex(x_coor,y_coor) ;
-      
-    }
-    tempBoard.endShape();
-    tempBoard.noStroke();
-    startingPosition = true;
-    for (y in tempTeam.standings){
-      var x_coor = start_x + x_incr/2 + y * x_incr;
-      var y_coor = tempTeam.standings[y] * y_incr + y_incr/2;
-      var tempFixtureID = tempTeam.fixtures[y];
-      if (startingPosition){
-        startingPosition = false;
-        continue;
-      }
-      tempBoard.fill(R,G,B,A );
-      if (fixturesDict[tempFixtureID].imp) {
-        tempBoard.rectMode(CENTER);
-        tempBoard.rect(x_coor,y_coor,circleRad+10,circleRad+10);
-      } else {
-        tempBoard.ellipse(x_coor,y_coor,circleRad,circleRad); 
-      }
-    }
-  }
-    for (i in shortNamesDict){
-    for (x in shortNamesArray){
-      if (shortNamesArray[x] == shortNamesDict[i]) {
-        var tempX = x;
-        teamsDict[i].updateStanding(0,++tempX);
-        var R = colorsDict[i][0];
-        var G = colorsDict[i][1];
-        var B = colorsDict[i][2];
-        var A = 30;
-        if (selected == "All") A = 255;
-        if (i == selected) A = 255;
-        var y_coor = 1.7 * y_incr + x * y_incr;
-        tempBoard.fill(R,G,B,A);
-        tempBoard.textStyle(NORMAL);
-        tempBoard.noStroke();
-        tempBoard.textSize(22);
-        var teamName = shortNamesArray[x];
-        tempBoard.text(teamName, 4, y_coor);
-      }
-    }
-  }
-  for (i = 1; i<21; i++){
-    tempBoard.fill(0);
-    var y_coor = 1 * i * y_incr + 32;
-    tempBoard.text(i + "", 170, y_coor);
-  }
-
-  board = tempBoard;
-}
 
 function draw(){
   background(255,255,255);
   image(board,0,0);
   var expandedMatches = [];
-
-  textSize(22);
-  text("Color Key", 25, 33);
 
   for (i = 0; i < 39; i++) {
     var x_coor = start_x + x_incr/4 + i * x_incr;
