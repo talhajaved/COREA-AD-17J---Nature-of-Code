@@ -68,10 +68,6 @@ function setup() {
 
 
   selectMenu = getElement('menu');
-  //selectMenu.position(100,50);
-
-
-
   
   // load all teams
   for (i = 0; i<teamsData['count']; i++){
@@ -297,7 +293,8 @@ function draw(){
   text(" /Position", 152, 39);
 
   for (i = 1; i < 39; i++) {
-    var x_coor = start_x + x_incr/4 + i * x_incr;
+    if (i<10) var x_coor = start_x + .42*x_incr + i * x_incr;
+    else var x_coor = start_x + x_incr/3 + i * x_incr;
     fill(0);
     textStyle(NORMAL);
     noStroke();

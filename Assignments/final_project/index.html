@@ -7,6 +7,7 @@ h1 {
     font-size:350%;
     padding: 0px;
     padding-top:15px;
+    margin-bottom: .4%;
 }
 select {
    width: 268px;
@@ -27,31 +28,40 @@ select {
   <script language="javascript" type="text/javascript" src="fixture.js"></script>
 </head>
 <body>
-	<h1 align="center">Barclays Premier League 2014/15</h1>
-<div class="styled" align="center" style="padding-bottom: 15px;">  
-<select name="Teams" id = "menu" onchange="if (this.selectedIndex > -1) optionSelected();" title="Highlight a Team">
-<option value="All">All Teams</option>
-<option value="FC Arsenal London">Arsenal</option>
-<option value="Aston Villa FC">Aston Villa</option>
-<option value="FC Burnley">Burnley</option>
-<option value="Chelsea FC">Chelsea</option>
-<option value="Crystal Palace">Crystal Palace</option>
-<option value="Everton FC">Everton</option>
-<option value="Hull City FC">Hull City</option>
-<option value="Leicester City">Leicester</option>
-<option value="Liverpool FC">Liverpool</option>
-<option value="Manchester City FC">Man City</option>
-<option value="Manchester United FC">Man United</option>
-<option value="Newcastle United">Newcastle</option>
-<option value="Queens Park Rangers">QPR</option>
-<option value="FC Southampton">Southampton</option>
-<option value="Stoke City FC">Stoke</option>
-<option value="Sunderland AFC">Sunderland</option>
-<option value="Swansea City">Swansea</option>
-<option value="Tottenham Hotspur FC">Tottenham</option>
-<option value="West Bromwich Albion">West Brom</option>
-<option value="West Ham United FC">West Ham</option>
-</select>
+	<h1 align="center">Barclays Premier League 2014/15</h1> 
+
+  <div class="panel" align="center" style="padding-bottom: 20px; font-size: 22px">
+     <div class="displayModes" style="padding-bottom:5px; padding-top:0; font-family:verdana;">
+        &#9675 : Expected Result ------ Hover on a shape to find match details ------ Unexpected Result : &#11035
+        </div>
+        <div class="searchPanel" style="font-family:verdana; font-size: 20px">
+          Highlight : 
+          <select name="Teams" id = "menu" onchange="if (this.selectedIndex > -1) optionSelected();" title="Highlight a Team">
+          <option value="All">All Teams</option>
+          <option value="FC Arsenal London">Arsenal</option>
+          <option value="Aston Villa FC">Aston Villa</option>
+          <option value="FC Burnley">Burnley</option>
+          <option value="Chelsea FC">Chelsea</option>
+          <option value="Crystal Palace">Crystal Palace</option>
+          <option value="Everton FC">Everton</option>
+          <option value="Hull City FC">Hull City</option>
+          <option value="Leicester City">Leicester</option>
+          <option value="Liverpool FC">Liverpool</option>
+          <option value="Manchester City FC">Man City</option>
+          <option value="Manchester United FC">Man United</option>
+          <option value="Newcastle United">Newcastle</option>
+          <option value="Queens Park Rangers">QPR</option>
+          <option value="FC Southampton">Southampton</option>
+          <option value="Stoke City FC">Stoke</option>
+          <option value="Sunderland AFC">Sunderland</option>
+          <option value="Swansea City">Swansea</option>
+          <option value="Tottenham Hotspur FC">Tottenham</option>
+          <option value="West Bromwich Albion">West Brom</option>
+          <option value="West Ham United FC">West Ham</option>
+          </select>         
+        </div>
+        <div class="clearer"></div>
+  </div>
 </div>
 </body>
 </html>
