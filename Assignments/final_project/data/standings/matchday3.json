@@ -1,0 +1,290 @@
+{
+"_links": {
+"self": "http://api.football-data.org/alpha/soccerseasons/354/leagueTable/?matchday=3",
+"soccerseason": "http://api.football-data.org/alpha/soccerseasons/354"
+},
+"leagueCaption": "Premier League 2014/15",
+"matchday": 3,
+"standing": [
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/61"
+}
+},
+"position": 1,
+"teamName": "Chelsea FC",
+"playedGames": 3,
+"points": 9,
+"goals": 11,
+"goalsAgainst": 4,
+"goalDifference": 7
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/72"
+}
+},
+"position": 2,
+"teamName": "Swansea City",
+"playedGames": 3,
+"points": 9,
+"goals": 6,
+"goalsAgainst": 1,
+"goalDifference": 5
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/58"
+}
+},
+"position": 3,
+"teamName": "Aston Villa FC",
+"playedGames": 3,
+"points": 7,
+"goals": 3,
+"goalsAgainst": 1,
+"goalDifference": 2
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/65"
+}
+},
+"position": 4,
+"teamName": "Manchester City FC",
+"playedGames": 3,
+"points": 6,
+"goals": 5,
+"goalsAgainst": 2,
+"goalDifference": 3
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/64"
+}
+},
+"position": 5,
+"teamName": "Liverpool FC",
+"playedGames": 3,
+"points": 6,
+"goals": 6,
+"goalsAgainst": 4,
+"goalDifference": 2
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/73"
+}
+},
+"position": 6,
+"teamName": "Tottenham Hotspur FC",
+"playedGames": 3,
+"points": 6,
+"goals": 5,
+"goalsAgainst": 3,
+"goalDifference": 2
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/57"
+}
+},
+"position": 7,
+"teamName": "FC Arsenal London",
+"playedGames": 3,
+"points": 5,
+"goals": 5,
+"goalsAgainst": 4,
+"goalDifference": 1
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/340"
+}
+},
+"position": 8,
+"teamName": "FC Southampton",
+"playedGames": 3,
+"points": 4,
+"goals": 4,
+"goalsAgainst": 3,
+"goalDifference": 1
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/322"
+}
+},
+"position": 9,
+"teamName": "Hull City FC",
+"playedGames": 3,
+"points": 4,
+"goals": 3,
+"goalsAgainst": 3,
+"goalDifference": 0
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/70"
+}
+},
+"position": 10,
+"teamName": "Stoke City FC",
+"playedGames": 3,
+"points": 4,
+"goals": 2,
+"goalsAgainst": 2,
+"goalDifference": 0
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/563"
+}
+},
+"position": 11,
+"teamName": "West Ham United FC",
+"playedGames": 3,
+"points": 3,
+"goals": 4,
+"goalsAgainst": 5,
+"goalDifference": -1
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/69"
+}
+},
+"position": 12,
+"teamName": "Queens Park Rangers",
+"playedGames": 3,
+"points": 3,
+"goals": 1,
+"goalsAgainst": 5,
+"goalDifference": -4
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/71"
+}
+},
+"position": 13,
+"teamName": "Sunderland AFC",
+"playedGames": 3,
+"points": 2,
+"goals": 3,
+"goalsAgainst": 4,
+"goalDifference": -1
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/66"
+}
+},
+"position": 14,
+"teamName": "Manchester United FC",
+"playedGames": 3,
+"points": 2,
+"goals": 2,
+"goalsAgainst": 3,
+"goalDifference": -1
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/338"
+}
+},
+"position": 15,
+"teamName": "Leicester City",
+"playedGames": 3,
+"points": 2,
+"goals": 3,
+"goalsAgainst": 5,
+"goalDifference": -2
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/67"
+}
+},
+"position": 15,
+"teamName": "Newcastle United",
+"playedGames": 3,
+"points": 2,
+"goals": 3,
+"goalsAgainst": 5,
+"goalDifference": -2
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/62"
+}
+},
+"position": 17,
+"teamName": "Everton FC",
+"playedGames": 3,
+"points": 2,
+"goals": 7,
+"goalsAgainst": 10,
+"goalDifference": -3
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/74"
+}
+},
+"position": 18,
+"teamName": "West Bromwich Albion",
+"playedGames": 3,
+"points": 2,
+"goals": 2,
+"goalsAgainst": 5,
+"goalDifference": -3
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/354"
+}
+},
+"position": 19,
+"teamName": "Crystal Palace",
+"playedGames": 3,
+"points": 1,
+"goals": 5,
+"goalsAgainst": 8,
+"goalDifference": -3
+},
+{
+"_links": {
+"team": {
+"href": "http://api.football-data.org/alpha/teams/328"
+}
+},
+"position": 20,
+"teamName": "FC Burnley",
+"playedGames": 3,
+"points": 1,
+"goals": 1,
+"goalsAgainst": 4,
+"goalDifference": -3
+}
+]
+}

@@ -1,0 +1,22 @@
+{
+	"Leicester City":[0,255,0],
+	"Everton FC":[0,255,255],
+	"Chelsea FC":[25,25,112],
+	"Swansea City":[128,128,0],
+	"Aston Villa FC":[255,105,180],
+	"Tottenham Hotspur FC":[192,192,192],
+	"Liverpool FC":[255,0,0],
+	"West Ham United FC":[153,0,76],
+	"Sunderland AFC":[128,61,139],
+	"West Bromwich Albion":[0,100,0],
+	"Stoke City FC":[255,192,203],
+	"Newcastle United":[0,0,0],
+	"Queens Park Rangers":[112,128,144],
+	"Manchester United FC":[205,92,92],
+	"FC Southampton":[255,140,0],
+	"Crystal Palace":[0,128,128],
+	"Manchester City FC":[135,206,235],
+	"FC Arsenal London":[143,188,143],
+	"FC Burnley":[255,255,0],
+	"Hull City FC":[204,102,0]
+}
