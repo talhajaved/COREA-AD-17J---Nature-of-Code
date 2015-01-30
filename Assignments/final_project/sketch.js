@@ -103,7 +103,6 @@ function setup() {
   }
 
  
-
   // load the standings of all matchdays
   for (i = 0; i<standingsData.length; i++){
     var matchdayStandings = standingsData[i].standing;
@@ -302,8 +301,6 @@ function draw(){
     text(""+i, x_coor, 2 * y_incr/3);
   }
 
-
-
   for (i = 0; i<drawnMatchesArray.length;i++) {
     var d = dist(mouseX, mouseY, drawnMatchesArray[i][0], drawnMatchesArray[i][1]);
     if (d < circleRad) {
@@ -333,7 +330,6 @@ function draw(){
     text(tempText,x_coor + 15,expandedMatches[i][1] + 30 + i * 75)
     text("Date: " + tempFixture.date,x_coor + 15,expandedMatches[i][1]+60+ i * 75)
   }
-    
   
 }
 
